@@ -1,12 +1,11 @@
-var builder = WebApplication.CreateBuilder(args);
 
-// Добавляем YARP
+
+var builder=WebApplication.CreateBuilder(args);
+
 builder.Services.AddReverseProxy()
     .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
-
-var app = builder.Build();
-
-// Включаем проксирование
-app.MapReverseProxy();
-
-app.Run();
+    
+    var app = builder.Build();
+    app.MapReverseProxy();
+    
+    app.Run();
